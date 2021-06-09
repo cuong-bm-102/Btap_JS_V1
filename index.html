@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>slider in Javascript</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css ">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <!-- Bài tập 1: Tạo Slideshow -->
+    <section class="home">
+        <h1>Bài tập 1 : Slideshow</h1>
+        <div class="slider">
+            <div class="slide active" style="background-image: url('images/slide-1.jpg')">
+                <div class="container">
+                    <div class="caption">
+                        <h2>Lorem ipsum dolor sit amet.</h2>
+                        <p>Lorem ipsum dummy text goes here.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('images/slide-2.jpg')">
+                <div class="container">
+                    <div class="caption">
+                        <h2>Lorem ipsum dolort.</h2>
+                        <p>Lorem ipsum dummy text goes here.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('images/slide-3.jpg')">
+                <div class="container">
+                    <div class="caption">
+                        <h2>Lorem ipsum dolor sit.</h2>
+                        <p>Lorem ipsum dummy text goes here.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="controls">
+            <div class="prev"><i class="fa fa-arrow-circle-left"></i></div>
+            <div class="next"><i class="fa fa-arrow-circle-right"></i></div>
+        </div>
+        <div class="indicator">
+        </div>
+    </section>
+    <!-- Bài tập 2: Validation -->
+    <section class="validation">
+        <h1>Bài tập 2: Validation</h1>
+        <div class="validation__content">
+            <form id="form-1" class="form">
+                <h2>Đăng ký tài khoản</h2>
+                <div class="form-control">
+                    <label for="username" class="form-label">Họ và tên</label>
+                    <input type="text" title="Ex. Nguyễn Mạnh Cường" placeholder="Họ và tên" id="username" name="username" />
+                    <i class="fa fa-check-circle"></i>
+                    <i class="fa fa-exclamation-circle"></i>
+                    <small class="form-message"></small>
+                </div>
+                <div class="form-control">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" title="Ex. cuongbm@gmail.com" placeholder="Email" id="email" name="email">
+                    <i class="fa fa-check-circle"></i>
+                    <i class="fa fa-exclamation-circle"></i>
+                    <small class="form-message"></small>
+                </div>
+                <div class="form-control">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" placeholder="Mật khẩu mới" title="Mật khẩu từ 8-32 ký tự, ít nhất 1 chữ hoa, 1 chữ thường và 1 chữ số" id="password" name="password">
+                    <i class="fa fa-check-circle"></i>
+                    <i class="fa fa-exclamation-circle"></i>
+                    <small class="form-message"></small>
+                </div>
+                <div class="form-control">
+                    <label for="checkpassword" class="form-label">Check Password</label>
+                    <input type="password" placeholder="Nhập lại mật khẩu" id="checkpassword" name="checkpassword">
+                    <i class="fa fa-check-circle"></i>
+                    <i class="fa fa-exclamation-circle"></i>
+                    <small class="form-message"></small>
+                </div>
+                <button class="form-submit">Đăng ký</button>
+            </form>
+        </div>
+    </section>
+    <script src="app.js"></script>
+    <script>
+        Validator({
+            form: '#form-1',
+            errorSelector: '.form-message',
+            rules: [
+                Validator.isRequired('#username'),
+                Validator.isEmail('#email'),
+                Validator.isPassword('#password'),
+                Validator.isCheckPassword('#checkpassword', function() {
+                    return document.querySelector('#form-1 #password').value;
+                })
+            ]
+        });
+        SlideShow({
+            slide: '.slider',
+            prev: '.prev',
+            next: '.next',
+            indicator: '.indicator'
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>

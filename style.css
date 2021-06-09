@@ -1,0 +1,236 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    overflow-x: hidden;
+}
+
+.home {
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+
+/* CSS SLIDESHOW */
+
+.home .slide {
+    position: absolute;
+    left: 0;
+    top: 20%;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+    display: none;
+    padding: 0 15px;
+    animation: slide 2s linear;
+}
+
+@keyframes slide {
+    0% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.home .slide.active {
+    display: flex;
+}
+
+.container {
+    max-width: 1170px;
+    margin: auto;
+}
+
+.home .container {
+    flex-grow: 1;
+}
+
+.home .caption {
+    width: 50%;
+}
+
+.home .caption h2 {
+    font-size: 30px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.home .caption a {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #000000;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.home .controls .prev,
+.home .controls .next {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    font-size: 30px;
+    color: black;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.home .controls .prev {
+    left: 1%;
+}
+
+.home .controls .next {
+    right: 1%;
+}
+
+.home .indicator {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    z-index: 2;
+    transform: translateX(-50%);
+}
+
+.home .indicator div {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-color: transparent;
+    border: 2.5px solid black;
+    border-radius: 50%;
+    margin: 0 3px;
+    cursor: pointer;
+}
+
+.home .indicator div.active {
+    background-color: black;
+}
+
+
+/*responsive*/
+
+@media(max-width: 767px) {
+    .controls {
+        display: none;
+    }
+}
+
+
+/* CSS VALIDATION */
+
+.validation {
+    padding: 50px 0;
+}
+
+.validation__content {
+    width: 100%;
+    background-color: #C3E6EA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+#form-1 {
+    background-color: rgb(255, 255, 255);
+    padding: 20px 30px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 400px;
+}
+
+#form-1 h2 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.form-control {
+    position: relative;
+    padding: 10px 0;
+}
+
+.form-control label {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.form-control input {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    padding: 8px 10px;
+    border-radius: 4px;
+    border: 1px solid black;
+}
+
+.form-control input:focus {
+    outline: 0;
+}
+
+form button {
+    width: 100%;
+    border-radius: 5px;
+    padding: 15px 0;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #42b72a;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+form button:hover {
+    background: linear-gradient(#79bc64, #578843);
+}
+
+form button:active {
+    position: relative;
+    top: 1px;
+}
+
+.form-control i {
+    position: absolute;
+    top: 43px;
+    right: 9px;
+    display: none;
+}
+
+.form-control.invalid small {
+    color: red;
+}
+
+.form-control.invalid .fa-exclamation-circle {
+    display: block;
+    color: red;
+}
+
+.form-control.invalid input {
+    border: 2px solid red;
+}
+
+.form-control.valid-success small {
+    color: green;
+}
+
+.form-control.valid-success .fa-check-circle {
+    display: block;
+    color: green;
+}
+
+.form-control.valid-success input {
+    border: 2px solid green;
+}
